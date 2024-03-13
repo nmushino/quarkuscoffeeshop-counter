@@ -79,7 +79,7 @@ public class OrderService {
     @Transactional
     public void onOrderUp(final TicketUp ticketUp) {
 
-         logger.debug("onOrderUp: {}", ticketUp);
+        logger.debug("onOrderUp: {}", ticketUp);
         Order order = orderRepository.findById(ticketUp.getOrderId());
         OrderEventResult orderEventResult = order.applyOrderTicketUp(ticketUp);
         logger.debug("OrderEventResult returned: {}", orderEventResult);

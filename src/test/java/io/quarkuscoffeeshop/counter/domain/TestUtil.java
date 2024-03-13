@@ -21,7 +21,7 @@ public class TestUtil {
         return new PlaceOrderCommand(
                 id,
                 OrderSource.WEB,
-                Location.ATLANTA,
+                Location.TOKYO,
                 UUID.randomUUID().toString(),
                 Optional.of(stubSingleBaristaItem()),
                 Optional.empty());
@@ -46,7 +46,7 @@ public class TestUtil {
                 null,
                 Instant.now(),
                 OrderStatus.PLACED,
-                Location.ATLANTA,
+                Location.TOKYO,
                 null,
                 null);
 
@@ -64,7 +64,7 @@ public class TestUtil {
         // build the order from the PlaceOrderCommand
         Order order = new Order(UUID.randomUUID().toString());
         order.setOrderSource(OrderSource.WEB);
-        order.setLocation(Location.ATLANTA);
+        order.setLocation(Location.TOKYO);
         order.setTimestamp(Instant.now());
         order.setOrderStatus(OrderStatus.IN_PROGRESS);
 
@@ -98,7 +98,7 @@ public class TestUtil {
         return new PlaceOrderCommand(
                 UUID.randomUUID().toString(),
                 OrderSource.WEB,
-                Location.ATLANTA,
+                Location.TOKYO,
                 UUID.randomUUID().toString(),
                 Optional.empty(),
                 Optional.of(stubSingleKitchenItem()));
@@ -110,7 +110,7 @@ public class TestUtil {
         return new PlaceOrderCommand(
                 UUID.randomUUID().toString(),
                 OrderSource.WEB,
-                Location.ATLANTA,
+                Location.TOKYO,
                 UUID.randomUUID().toString(),
                 Optional.of(stubSingleBaristaItem()),
                 Optional.of(stubSingleKitchenItem()));
