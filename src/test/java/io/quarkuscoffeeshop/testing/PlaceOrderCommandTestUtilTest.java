@@ -17,6 +17,6 @@ public class PlaceOrderCommandTestUtilTest {
         assertNotNull(placeOrderCommand);
         assertNotNull(placeOrderCommand.getId());
         assertEquals(1, placeOrderCommand.getBaristaLineItems().get().size());
-        assertEquals(Item.COFFEE_BLACK, placeOrderCommand.getBaristaLineItems().get().get(0).item);
+        assertEquals(Item.CP0FB2_BLACK, placeOrderCommand.getBaristaLineItems().get().get(0).item);
     }
 }

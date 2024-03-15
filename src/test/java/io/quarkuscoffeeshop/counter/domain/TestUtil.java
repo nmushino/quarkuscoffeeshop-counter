@@ -32,11 +32,11 @@ public class TestUtil {
     };
 
     private static List<CommandItem> stubSingleBaristaItem() {
-        return Arrays.asList(new CommandItem(Item.COFFEE_BLACK, "Foo", BigDecimal.valueOf(3.25)));
+        return Arrays.asList(new CommandItem(Item.CP0FB2_BLACK, "Foo", BigDecimal.valueOf(150000)));
     }
 
     private static List<CommandItem> stubSingleKitchenItem() {
-        return Arrays.asList(new CommandItem(Item.CROISSANT, "Foo", BigDecimal.valueOf(3.25)));
+        return Arrays.asList(new CommandItem(Item.FAC94S3, "Foo", BigDecimal.valueOf(3.25)));
     }
 
     public static Order stubOrder() {
@@ -52,7 +52,7 @@ public class TestUtil {
 
         Order order = Order.fromOrderRecord(orderRecord);
 
-        order.addBaristaLineItem(new LineItem(Item.COFFEE_BLACK, "Rocky", BigDecimal.valueOf(3.00), LineItemStatus.PLACED, orderRecord));
+        order.addBaristaLineItem(new LineItem(Item.CP0FB2_BLACK, "Rocky", BigDecimal.valueOf(150000), LineItemStatus.PLACED, orderRecord));
         return order;
     }
 
@@ -79,7 +79,7 @@ public class TestUtil {
     }
 
     private static List<OrderTicket> stubBaristaTickets() {
-        return Arrays.asList(new OrderTicket(UUID.randomUUID().toString(), UUID.randomUUID().toString(), Item.COFFEE_BLACK, "Rocky"));
+        return Arrays.asList(new OrderTicket(UUID.randomUUID().toString(), UUID.randomUUID().toString(), Item.CP0FB2_BLACK, "Rocky"));
     }
 
     public static TicketUp stubOrderTicketUp() {
@@ -87,7 +87,7 @@ public class TestUtil {
         return new TicketUp(
                 UUID.randomUUID().toString(),
                 UUID.randomUUID().toString(),
-                Item.COFFEE_BLACK,
+                Item.CP0FB2_BLACK,
                 "Capt. Kirk",
                 "Mr. Spock"
         );

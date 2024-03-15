@@ -57,12 +57,12 @@ public class PlaceOrderCommandTestUtil {
         if (this.baristaLineItems == null) {
             this.baristaLineItems = new ArrayList<>();
         }
-        this.baristaLineItems.add(new CommandItem(Item.COFFEE_BLACK, "Jerry", BigDecimal.valueOf(3.50)));
+        this.baristaLineItems.add(new CommandItem(Item.CP0FB2_BLACK, "Jerry", BigDecimal.valueOf(3.50)));
         return this;
     }
 
     public void withBlackCoffeeFor(final String name) {
-        this.baristaLineItems.add(new CommandItem(Item.COFFEE_BLACK, name, BigDecimal.valueOf(3.50)));
+        this.baristaLineItems.add(new CommandItem(Item.CP0FB2_BLACK, name, BigDecimal.valueOf(3.50)));
     }
 
     public PlaceOrderCommand build() {

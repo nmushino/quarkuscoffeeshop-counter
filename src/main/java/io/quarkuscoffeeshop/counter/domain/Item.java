@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 public enum Item {
 
     //Beverages
-    CAPPUCCINO(BigDecimal.valueOf(4.50)), COFFEE_BLACK(BigDecimal.valueOf(3.00)), COFFEE_WITH_ROOM(BigDecimal.valueOf(3.00)), ESPRESSO(BigDecimal.valueOf(3.50)), ESPRESSO_DOUBLE(BigDecimal.valueOf(4.50)), LATTE(BigDecimal.valueOf(4.50)),
+    CH99A9(BigDecimal.valueOf(755000)), CP0FB2_BLACK(BigDecimal.valueOf(150000)), CP1FC3_HOME(BigDecimal.valueOf(225000)), CK9FA3(BigDecimal.valueOf(550000)), CS92C3(BigDecimal.valueOf(565000)), CHD89SS9(BigDecimal.valueOf(100000)),
 
     //Food
-    CAKEPOP(BigDecimal.valueOf(2.50)), CROISSANT(BigDecimal.valueOf(3.25)), MUFFIN(BigDecimal.valueOf(3.00)), CROISSANT_CHOCOLATE(BigDecimal.valueOf(3.50));
+    FAMKD8D8(BigDecimal.valueOf(255000)), FAC94S3(BigDecimal.valueOf(10500000)), FASKK9K(BigDecimal.valueOf(1780000)), FAND78K(BigDecimal.valueOf(1580000));
 
     private BigDecimal price;
 
