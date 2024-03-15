@@ -51,12 +51,12 @@ public class LineItemStatusTest {
 
         Order order = orderRepository.findById(orderId);
         assertNotNull(order);
-        assertTrue(order.getBaristaLineItems().isPresent());
-        assertEquals(1, order.getBaristaLineItems().get().size());
-        assertEquals(LineItemStatus.IN_PROGRESS, order.getBaristaLineItems().get().get(0).getLineItemStatus());
+        assertTrue(order.getHomerobotLineItems().isPresent());
+        assertEquals(1, order.getHomerobotLineItems().get().size());
+        assertEquals(LineItemStatus.IN_PROGRESS, order.getHomerobotLineItems().get().get(0).getLineItemStatus());
 
 
-        LineItem lineItem = order.getBaristaLineItems().get().get(0);
+        LineItem lineItem = order.getHomerobotLineItems().get().get(0);
         final TicketUp ticketUp = new TicketUp(
                 orderId,
                 lineItem.getItemId(),
@@ -71,9 +71,9 @@ public class LineItemStatusTest {
 
         Order updatedOrder = orderRepository.findById(orderId);
         assertNotNull(updatedOrder);
-        assertTrue(updatedOrder.getBaristaLineItems().isPresent());
-        assertEquals(1, updatedOrder.getBaristaLineItems().get().size());
-        assertEquals(LineItemStatus.FULFILLED, updatedOrder.getBaristaLineItems().get().get(0).getLineItemStatus());
+        assertTrue(updatedOrder.getHomerobotLineItems().isPresent());
+        assertEquals(1, updatedOrder.getHomerobotLineItems().get().size());
+        assertEquals(LineItemStatus.FULFILLED, updatedOrder.getHomerobotLineItems().get().get(0).getLineItemStatus());
     }
 }
 

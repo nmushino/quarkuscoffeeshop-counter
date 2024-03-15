@@ -47,12 +47,12 @@ public class OrderStatusTest {
 
         Order order = orderRepository.findById(orderId);
         assertNotNull(order);
-        assertTrue(order.getBaristaLineItems().isPresent());
-        assertEquals(1, order.getBaristaLineItems().get().size());
+        assertTrue(order.getHomerobotLineItems().isPresent());
+        assertEquals(1, order.getHomerobotLineItems().get().size());
         assertEquals(OrderStatus.IN_PROGRESS, order.getOrderStatus());
 
 
-        LineItem lineItem = order.getBaristaLineItems().get().get(0);
+        LineItem lineItem = order.getHomerobotLineItems().get().get(0);
         final TicketUp ticketUp = new TicketUp(
                 orderId,
                 lineItem.getItemId(),
@@ -67,8 +67,8 @@ public class OrderStatusTest {
 
         Order updatedOrder = orderRepository.findById(orderId);
         assertNotNull(updatedOrder);
-        assertTrue(updatedOrder.getBaristaLineItems().isPresent());
-        assertEquals(1, updatedOrder.getBaristaLineItems().get().size());
+        assertTrue(updatedOrder.getHomerobotLineItems().isPresent());
+        assertEquals(1, updatedOrder.getHomerobotLineItems().get().size());
         assertEquals(OrderStatus.FULFILLED, updatedOrder.getOrderStatus());
     }
 }

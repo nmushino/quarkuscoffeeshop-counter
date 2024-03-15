@@ -34,25 +34,25 @@ public class OrderUpdatedEvent implements ExportedEvent<String, JsonNode> {
       .put("orderSource", order.getOrderSource().toString())
       .put("timestamp", order.getTimestamp().toString());
 
-    if (order.getBaristaLineItems().isPresent()) {
-      ArrayNode baristaLineItems = asJson.putArray("baristaLineItems") ;
-      for (LineItem lineItem : order.getBaristaLineItems().get()) {
+    if (order.getHomerobotLineItems().isPresent()) {
+      ArrayNode homerobotLineItems = asJson.putArray("homerobotLineItems") ;
+      for (LineItem lineItem : order.getHomerobotLineItems().get()) {
         ObjectNode lineAsJon = mapper.createObjectNode()
           .put("item", lineItem.getItem().toString())
           .put("name", lineItem.getName())
           .put("lineItemStatus", lineItem.getLineItemStatus().toString());
-        baristaLineItems.add(lineAsJon);
+        homerobotLineItems.add(lineAsJon);
       }
     }
 
-    if (order.getKitchenLineItems().isPresent()) {
-      ArrayNode kitchenLineItems = asJson.putArray("kitchenLineItems") ;
-      for (LineItem lineItem : order.getKitchenLineItems().get()) {
+    if (order.getProrobotLineItems().isPresent()) {
+      ArrayNode prorobotLineItems = asJson.putArray("prorobotLineItems") ;
+      for (LineItem lineItem : order.getProrobotLineItems().get()) {
         ObjectNode lineAsJon = mapper.createObjectNode()
           .put("item", lineItem.getItem().toString())
           .put("name", lineItem.getName())
           .put("lineItemStatus", lineItem.getLineItemStatus().toString());
-        kitchenLineItems.add(lineAsJon);
+        prorobotLineItems.add(lineAsJon);
       }
     }
 

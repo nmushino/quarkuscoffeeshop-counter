@@ -16,8 +16,8 @@ public class OrderEventResultCreationTest {
         OrderEventResult orderEventResult = Order.createFromCommand(placeOrderCommand);
         assertNotNull(orderEventResult.getOrder());
         assertNotNull(orderEventResult.getOrder().getOrderId());
-        assertEquals(1, orderEventResult.getOrder().getBaristaLineItems().get().size());
-        assertFalse(orderEventResult.getOrder().getKitchenLineItems().isPresent());
+        assertEquals(1, orderEventResult.getOrder().getHomerobotLineItems().get().size());
+        assertFalse(orderEventResult.getOrder().getProrobotLineItems().isPresent());
     }
 
     @Test
@@ -27,19 +27,19 @@ public class OrderEventResultCreationTest {
         OrderEventResult orderEventResult = Order.createFromCommand(placeOrderCommand);
         assertNotNull(orderEventResult.getOrder());
         assertNotNull(orderEventResult.getOrder().getOrderId());
-        assertEquals(1, orderEventResult.getOrder().getKitchenLineItems().get().size());
-        assertFalse(orderEventResult.getOrder().getBaristaLineItems().isPresent());
+        assertEquals(1, orderEventResult.getOrder().getProrobotLineItems().get().size());
+        assertFalse(orderEventResult.getOrder().getHomerobotLineItems().isPresent());
     }
 
     @Test
-    public void testOrderCreationWithBeverageAndKitchenItems() {
+    public void testOrderCreationWithBeverageAndProrobotItems() {
 
         PlaceOrderCommand placeOrderCommand = TestUtil.stubPlaceOrderCommandBlackCoffeeAndCroissant();
         OrderEventResult orderEventResult = Order.createFromCommand(placeOrderCommand);
         assertNotNull(orderEventResult.getOrder());
         assertNotNull(orderEventResult.getOrder().getOrderId());
-        assertEquals(1, orderEventResult.getOrder().getBaristaLineItems().get().size());
-        assertEquals(1, orderEventResult.getOrder().getKitchenLineItems().get().size());
+        assertEquals(1, orderEventResult.getOrder().getHomerobotLineItems().get().size());
+        assertEquals(1, orderEventResult.getOrder().getProrobotLineItems().get().size());
     }
 
 }

@@ -33,11 +33,11 @@ public class OrderService {
     @Inject
     Event<ExportedEvent<?, ?>> event;
 
-    @Channel("barista")
-    Emitter<OrderTicket> baristaEmitter;
+    @Channel("homerobot")
+    Emitter<OrderTicket> homerobotEmitter;
 
-    @Channel("kitchen")
-    Emitter<OrderTicket> kitchenEmitter;
+    @Channel("prorobot")
+    Emitter<OrderTicket> prorobotEmitter;
 
     @Channel("web-updates")
     Emitter<OrderUpdate> orderUpdateEmitter;
@@ -57,16 +57,16 @@ public class OrderService {
             event.fire(exportedEvent);
         });
 
-        if (orderEventResult.getBaristaTickets().isPresent()) {
-            orderEventResult.getBaristaTickets().get().forEach(baristaTicket -> {
-                logger.debug("Sending Ticket to Barista Service: {}", baristaTicket);
-                baristaEmitter.send(baristaTicket);
+        if (orderEventResult.getHomerobotTickets().isPresent()) {
+            orderEventResult.getHomerobotTickets().get().forEach(homerobotTicket -> {
+                logger.debug("Sending Ticket to Homerobot Service: {}", homerobotTicket);
+                homerobotEmitter.send(homerobotTicket);
             });
         }
 
-        if (orderEventResult.getKitchenTickets().isPresent()) {
-            orderEventResult.getKitchenTickets().get().forEach(kitchenTicket -> {
-                kitchenEmitter.send(kitchenTicket);
+        if (orderEventResult.getProrobotTickets().isPresent()) {
+            orderEventResult.getProrobotTickets().get().forEach(prorobotTicket -> {
+                prorobotEmitter.send(prorobotTicket);
             });
         }
 
@@ -98,8 +98,8 @@ public class OrderService {
                 "threadContext=" + threadContext +
                 ", orderRepository=" + orderRepository +
                 ", event=" + event +
-                ", baristaEmitter=" + baristaEmitter +
-                ", kitchenEmitter=" + kitchenEmitter +
+                ", homerobotEmitter=" + homerobotEmitter +
+                ", prorobotEmitter=" + prorobotEmitter +
                 ", orderUpdateEmitter=" + orderUpdateEmitter +
                 '}';
     }

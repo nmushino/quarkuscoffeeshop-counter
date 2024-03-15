@@ -28,23 +28,23 @@ public class OrderRecord extends PanacheEntityBase {
     private Location location;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL)
-    private List<LineItem> baristaLineItems;
+    private List<LineItem> homerobotLineItems;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL)
-    private List<LineItem> kitchenLineItems;
+    private List<LineItem> prorobotLineItems;
 
     public OrderRecord() {
     }
 
-    public OrderRecord(String orderId, OrderSource orderSource, String loyaltyMemberId, Instant timestamp, OrderStatus orderStatus, Location location, List<LineItem> baristaLineItems, List<LineItem> kitchenLineItems) {
+    public OrderRecord(String orderId, OrderSource orderSource, String loyaltyMemberId, Instant timestamp, OrderStatus orderStatus, Location location, List<LineItem> homerobotLineItems, List<LineItem> prorobotLineItems) {
         this.orderId = orderId;
         this.orderSource = orderSource;
         this.loyaltyMemberId = loyaltyMemberId;
         this.timestamp = timestamp;
         this.orderStatus = orderStatus;
         this.location = location;
-        this.baristaLineItems = baristaLineItems;
-        this.kitchenLineItems = kitchenLineItems;
+        this.homerobotLineItems = homerobotLineItems;
+        this.prorobotLineItems = prorobotLineItems;
     }
 
     @Override
@@ -56,8 +56,8 @@ public class OrderRecord extends PanacheEntityBase {
         sb.append(", timestamp=").append(timestamp);
         sb.append(", orderStatus=").append(orderStatus);
         sb.append(", location=").append(location);
-        sb.append(", baristaLineItems=").append(baristaLineItems);
-        sb.append(", kitchenLineItems=").append(kitchenLineItems);
+        sb.append(", homerobotLineItems=").append(homerobotLineItems);
+        sb.append(", prorobotLineItems=").append(prorobotLineItems);
         sb.append('}');
         return sb.toString();
     }
@@ -76,9 +76,9 @@ public class OrderRecord extends PanacheEntityBase {
         if (timestamp != null ? !timestamp.equals(that.timestamp) : that.timestamp != null) return false;
         if (orderStatus != that.orderStatus) return false;
         if (location != that.location) return false;
-        if (baristaLineItems != null ? !baristaLineItems.equals(that.baristaLineItems) : that.baristaLineItems != null)
+        if (homerobotLineItems != null ? !homerobotLineItems.equals(that.homerobotLineItems) : that.homerobotLineItems != null)
             return false;
-        return kitchenLineItems != null ? kitchenLineItems.equals(that.kitchenLineItems) : that.kitchenLineItems == null;
+        return prorobotLineItems != null ? prorobotLineItems.equals(that.prorobotLineItems) : that.prorobotLineItems == null;
     }
 
     @Override
@@ -89,8 +89,8 @@ public class OrderRecord extends PanacheEntityBase {
         result = 31 * result + (timestamp != null ? timestamp.hashCode() : 0);
         result = 31 * result + (orderStatus != null ? orderStatus.hashCode() : 0);
         result = 31 * result + (location != null ? location.hashCode() : 0);
-        result = 31 * result + (baristaLineItems != null ? baristaLineItems.hashCode() : 0);
-        result = 31 * result + (kitchenLineItems != null ? kitchenLineItems.hashCode() : 0);
+        result = 31 * result + (homerobotLineItems != null ? homerobotLineItems.hashCode() : 0);
+        result = 31 * result + (prorobotLineItems != null ? prorobotLineItems.hashCode() : 0);
         return result;
     }
 
@@ -142,19 +142,19 @@ public class OrderRecord extends PanacheEntityBase {
         this.location = location;
     }
 
-    public List<LineItem> getBaristaLineItems() {
-        return baristaLineItems;
+    public List<LineItem> getHomerobotLineItems() {
+        return homerobotLineItems;
     }
 
-    public void setBaristaLineItems(List<LineItem> baristaLineItems) {
-        this.baristaLineItems = baristaLineItems;
+    public void setHomerobotLineItems(List<LineItem> homerobotLineItems) {
+        this.homerobotLineItems = homerobotLineItems;
     }
 
-    public List<LineItem> getKitchenLineItems() {
-        return kitchenLineItems;
+    public List<LineItem> getProrobotLineItems() {
+        return prorobotLineItems;
     }
 
-    public void setKitchenLineItems(List<LineItem> kitchenLineItems) {
-        this.kitchenLineItems = kitchenLineItems;
+    public void setProrobotLineItems(List<LineItem> prorobotLineItems) {
+        this.prorobotLineItems = prorobotLineItems;
     }
 }

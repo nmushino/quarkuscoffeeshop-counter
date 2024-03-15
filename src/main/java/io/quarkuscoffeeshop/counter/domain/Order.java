@@ -37,39 +37,39 @@ public class Order {
   public OrderEventResult applyOrderTicketUp(final TicketUp ticketUp) {
 
     // set the LineItem's new status
-    if (this.getBaristaLineItems().isPresent()) {
-      this.getBaristaLineItems().get().stream().forEach(lineItem -> {
+    if (this.getHomerobotLineItems().isPresent()) {
+      this.getHomerobotLineItems().get().stream().forEach(lineItem -> {
         if(lineItem.getItemId().equals(ticketUp.lineItemId)){
           lineItem.setLineItemStatus(LineItemStatus.FULFILLED);
         }
       });
     }
-    if (this.getKitchenLineItems().isPresent()) {
-      this.getKitchenLineItems().get().stream().forEach(lineItem -> {
+    if (this.getProrobotLineItems().isPresent()) {
+      this.getProrobotLineItems().get().stream().forEach(lineItem -> {
         if(lineItem.getItemId().equals(ticketUp.lineItemId)){
           lineItem.setLineItemStatus(LineItemStatus.FULFILLED);
         }
       });
     }
 
-    // if there are both barista and kitchen items concatenate them before checking status
-    if (this.getBaristaLineItems().isPresent() && this.getKitchenLineItems().isPresent()) {
+    // if there are both homerobot and prorobot items concatenate them before checking status
+    if (this.getHomerobotLineItems().isPresent() && this.getProrobotLineItems().isPresent()) {
       // check the status of the Order itself and update if necessary
-      if(Stream.concat(this.getBaristaLineItems().get().stream(), this.getKitchenLineItems().get().stream())
+      if(Stream.concat(this.getHomerobotLineItems().get().stream(), this.getProrobotLineItems().get().stream())
               .allMatch(lineItem -> {
                 return lineItem.getLineItemStatus().equals(LineItemStatus.FULFILLED);
               })){
         this.setOrderStatus(OrderStatus.FULFILLED);
       };
-    } else if (this.getBaristaLineItems().isPresent()) {
-      if(this.getBaristaLineItems().get().stream()
+    } else if (this.getHomerobotLineItems().isPresent()) {
+      if(this.getHomerobotLineItems().get().stream()
               .allMatch(lineItem -> {
                 return lineItem.getLineItemStatus().equals(LineItemStatus.FULFILLED);
               })){
         this.setOrderStatus(OrderStatus.FULFILLED);
       };
-    }else if (this.getKitchenLineItems().isPresent()) {
-      if(this.getKitchenLineItems().get().stream()
+    }else if (this.getProrobotLineItems().isPresent()) {
+      if(this.getProrobotLineItems().get().stream()
               .allMatch(lineItem -> {
                 return lineItem.getLineItemStatus().equals(LineItemStatus.FULFILLED);
               })){
@@ -112,19 +112,19 @@ public class Order {
       order.setLoyaltyMemberId(placeOrderCommand.getLoyaltyMemberId().get());
     }
 
-    if (placeOrderCommand.getBaristaLineItems().isPresent()) {
-      placeOrderCommand.getBaristaLineItems().get().forEach(commandItem -> {
-        logger.debug("createOrderFromCommand adding baristaItem from {}", commandItem.toString());
+    if (placeOrderCommand.getHomerobotLineItems().isPresent()) {
+      placeOrderCommand.getHomerobotLineItems().get().forEach(commandItem -> {
+        logger.debug("createOrderFromCommand adding homerobotItem from {}", commandItem.toString());
         LineItem lineItem = new LineItem(commandItem.getItem(), commandItem.getName(), commandItem.getPrice(), LineItemStatus.IN_PROGRESS, order.getOrderRecord());
-        order.addBaristaLineItem(lineItem);
+        order.addHomerobotLineItem(lineItem);
       });
     }
 
-    if (placeOrderCommand.getKitchenLineItems().isPresent()) {
-      logger.debug("createOrderFromCommand adding kitchenOrders {}", placeOrderCommand.getKitchenLineItems().get().size());
-      placeOrderCommand.getKitchenLineItems().get().forEach(commandItem -> {
+    if (placeOrderCommand.getProrobotLineItems().isPresent()) {
+      logger.debug("createOrderFromCommand adding prorobotOrders {}", placeOrderCommand.getProrobotLineItems().get().size());
+      placeOrderCommand.getProrobotLineItems().get().forEach(commandItem -> {
         LineItem lineItem = new LineItem(commandItem.getItem(), commandItem.getName(), commandItem.getPrice(), LineItemStatus.IN_PROGRESS, order.getOrderRecord());
-        order.addKitchenLineItem(lineItem);
+        order.addProrobotLineItem(lineItem);
       });
     }
 
@@ -135,14 +135,14 @@ public class Order {
 
     List<OrderUpdate> orderUpdates = new ArrayList<>();
 
-    // create required BaristaTicket, KitchenTicket, and OrderUpdate value objects
-    if (order.getBaristaLineItems().isPresent()) {
-      order.getBaristaLineItems().get().forEach(lineItem -> {
+    // create required HomerobotTicket, ProrobotTicket, and OrderUpdate value objects
+    if (order.getHomerobotLineItems().isPresent()) {
+      order.getHomerobotLineItems().get().forEach(lineItem -> {
         orderUpdates.add(new OrderUpdate(order.getOrderId(), lineItem.getItemId(), lineItem.getName(), lineItem.getItem(), OrderStatus.IN_PROGRESS));
       });
     }
-    if (order.getKitchenLineItems().isPresent()) {
-      order.getKitchenLineItems().get().forEach(lineItem -> {
+    if (order.getProrobotLineItems().isPresent()) {
+      order.getProrobotLineItems().get().forEach(lineItem -> {
         orderUpdates.add(new OrderUpdate(order.getOrderId(), lineItem.getItemId(), lineItem.getName(), lineItem.getItem(), OrderStatus.IN_PROGRESS));
       });
     }
@@ -171,13 +171,13 @@ public class Order {
     OrderEventResult orderEventResult = new OrderEventResult();
     orderEventResult.setOrder(order);
 
-    // create required BaristaTicket, KitchenTicket, and OrderUpdate value objects
-    if (order.getBaristaLineItems().isPresent()) {
-      orderEventResult.setBaristaTickets(createOrderTickets(order.getOrderId(), order.getBaristaLineItems().get()));
+    // create required HomerobotTicket, ProrobotTicket, and OrderUpdate value objects
+    if (order.getHomerobotLineItems().isPresent()) {
+      orderEventResult.setHomerobotTickets(createOrderTickets(order.getOrderId(), order.getHomerobotLineItems().get()));
     }
 
-    if (order.getKitchenLineItems().isPresent()) {
-      orderEventResult.setKitchenTickets(createOrderTickets(order.getOrderId(), order.getKitchenLineItems().get()));
+    if (order.getProrobotLineItems().isPresent()) {
+      orderEventResult.setProrobotTickets(createOrderTickets(order.getOrderId(), order.getProrobotLineItems().get()));
     }
 
     // add updates
@@ -200,15 +200,15 @@ public class Order {
    *
    * @param lineItem
    */
-  public void addBaristaLineItem(LineItem lineItem) {
-    if (getBaristaLineItems().isPresent()) {
+  public void addHomerobotLineItem(LineItem lineItem) {
+    if (getHomerobotLineItems().isPresent()) {
       lineItem.setOrder(this.orderRecord);
-      this.getBaristaLineItems().get().add(lineItem);
+      this.getHomerobotLineItems().get().add(lineItem);
     }else{
-      if (this.orderRecord.getBaristaLineItems() == null) {
-        this.orderRecord.setBaristaLineItems(new ArrayList<LineItem>(){{ add(lineItem); }});
+      if (this.orderRecord.getHomerobotLineItems() == null) {
+        this.orderRecord.setHomerobotLineItems(new ArrayList<LineItem>(){{ add(lineItem); }});
       }else{
-        this.orderRecord.getBaristaLineItems().add(lineItem);
+        this.orderRecord.getHomerobotLineItems().add(lineItem);
       }
     }
   }
@@ -218,33 +218,33 @@ public class Order {
    *
    * @param lineItem
    */
-  public void addKitchenLineItem(LineItem lineItem) {
-    if (this.getKitchenLineItems().isPresent()) {
+  public void addProrobotLineItem(LineItem lineItem) {
+    if (this.getProrobotLineItems().isPresent()) {
       lineItem.setOrder(this.orderRecord);
-      this.getKitchenLineItems().get().add(lineItem);
+      this.getProrobotLineItems().get().add(lineItem);
     }else {
-      if (this.orderRecord.getKitchenLineItems() == null) {
-        this.orderRecord.setKitchenLineItems(new ArrayList<LineItem>(){{ add(lineItem); }});
+      if (this.orderRecord.getProrobotLineItems() == null) {
+        this.orderRecord.setProrobotLineItems(new ArrayList<LineItem>(){{ add(lineItem); }});
       }else{
-        this.orderRecord.getKitchenLineItems().add(lineItem);
+        this.orderRecord.getProrobotLineItems().add(lineItem);
       }
     }
   }
 
-  public Optional<List<LineItem>> getBaristaLineItems() {
-    return Optional.ofNullable(this.orderRecord.getBaristaLineItems());
+  public Optional<List<LineItem>> getHomerobotLineItems() {
+    return Optional.ofNullable(this.orderRecord.getHomerobotLineItems());
   }
 
-  public void setBaristaLineItems(List<LineItem> baristaLineItems) {
-    this.orderRecord.setBaristaLineItems(baristaLineItems);
+  public void setHomerobotLineItems(List<LineItem> homerobotLineItems) {
+    this.orderRecord.setHomerobotLineItems(homerobotLineItems);
   }
 
-  public Optional<List<LineItem>> getKitchenLineItems() {
-    return Optional.ofNullable(this.orderRecord.getKitchenLineItems());
+  public Optional<List<LineItem>> getProrobotLineItems() {
+    return Optional.ofNullable(this.orderRecord.getProrobotLineItems());
   }
 
-  public void setKitchenLineItems(List<LineItem> kitchenLineItems) {
-    this.orderRecord.setKitchenLineItems(kitchenLineItems);
+  public void setProrobotLineItems(List<LineItem> prorobotLineItems) {
+    this.orderRecord.setProrobotLineItems(prorobotLineItems);
   }
 
   public Optional<String> getLoyaltyMemberId() {
@@ -267,15 +267,15 @@ public class Order {
     this.orderRecord.setTimestamp(Instant.now());
   }
 
-  public Order(final String orderId, final OrderSource orderSource, final Location location, final String loyaltyMemberId, final Instant timestamp, final OrderStatus orderStatus, final List<LineItem> baristaLineItems, final List<LineItem> kitchenLineItems) {
+  public Order(final String orderId, final OrderSource orderSource, final Location location, final String loyaltyMemberId, final Instant timestamp, final OrderStatus orderStatus, final List<LineItem> homerobotLineItems, final List<LineItem> prorobotLineItems) {
     this.orderRecord.setOrderId(orderId);
     this.orderRecord.setOrderSource(orderSource);
     this.orderRecord.setLocation(location);
     this.orderRecord.setLoyaltyMemberId(loyaltyMemberId);
     this.orderRecord.setTimestamp(timestamp);
     this.orderRecord.setOrderStatus(orderStatus);
-    this.orderRecord.setBaristaLineItems(baristaLineItems);
-    this.orderRecord.setKitchenLineItems(kitchenLineItems);
+    this.orderRecord.setHomerobotLineItems(homerobotLineItems);
+    this.orderRecord.setProrobotLineItems(prorobotLineItems);
   }
 
   @Override
@@ -287,8 +287,8 @@ public class Order {
             .add("timestamp=" + orderRecord.getTimestamp())
             .add("orderStatus=" + orderRecord.getOrderStatus())
             .add("location=" + orderRecord.getLocation())
-            .add("baristaLineItems=" + orderRecord.getBaristaLineItems())
-            .add("kitchenLineItems=" + orderRecord.getKitchenLineItems())
+            .add("homerobotLineItems=" + orderRecord.getHomerobotLineItems())
+            .add("prorobotLineItems=" + orderRecord.getProrobotLineItems())
             .toString();
   }
 

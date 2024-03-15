@@ -23,7 +23,7 @@ public class TestUtil {
                 OrderSource.WEB,
                 Location.TOKYO,
                 UUID.randomUUID().toString(),
-                Optional.of(stubSingleBaristaItem()),
+                Optional.of(stubSingleHomerobotItem()),
                 Optional.empty());
     }
 
@@ -31,11 +31,11 @@ public class TestUtil {
         return stubPlaceOrderCommand(UUID.randomUUID().toString());
     };
 
-    private static List<CommandItem> stubSingleBaristaItem() {
+    private static List<CommandItem> stubSingleHomerobotItem() {
         return Arrays.asList(new CommandItem(Item.CP0FB2_BLACK, "Foo", BigDecimal.valueOf(150000)));
     }
 
-    private static List<CommandItem> stubSingleKitchenItem() {
+    private static List<CommandItem> stubSingleProrobotItem() {
         return Arrays.asList(new CommandItem(Item.FAC94S3, "Foo", BigDecimal.valueOf(3.25)));
     }
 
@@ -52,7 +52,7 @@ public class TestUtil {
 
         Order order = Order.fromOrderRecord(orderRecord);
 
-        order.addBaristaLineItem(new LineItem(Item.CP0FB2_BLACK, "Rocky", BigDecimal.valueOf(150000), LineItemStatus.PLACED, orderRecord));
+        order.addHomerobotLineItem(new LineItem(Item.CP0FB2_BLACK, "Rocky", BigDecimal.valueOf(150000), LineItemStatus.PLACED, orderRecord));
         return order;
     }
 
@@ -69,7 +69,7 @@ public class TestUtil {
         order.setOrderStatus(OrderStatus.IN_PROGRESS);
 
         orderEventResult.setOrder(order);
-        orderEventResult.setBaristaTickets(TestUtil.stubBaristaTickets());
+        orderEventResult.setHomerobotTickets(TestUtil.stubHomerobotTickets());
         orderEventResult.setOutboxEvents(mockOrderInEvent());
         return orderEventResult;
     }
@@ -78,7 +78,7 @@ public class TestUtil {
         return Arrays.asList(OrderCreatedEvent.of(stubOrder()));
     }
 
-    private static List<OrderTicket> stubBaristaTickets() {
+    private static List<OrderTicket> stubHomerobotTickets() {
         return Arrays.asList(new OrderTicket(UUID.randomUUID().toString(), UUID.randomUUID().toString(), Item.CP0FB2_BLACK, "Rocky"));
     }
 
@@ -101,7 +101,7 @@ public class TestUtil {
                 Location.TOKYO,
                 UUID.randomUUID().toString(),
                 Optional.empty(),
-                Optional.of(stubSingleKitchenItem()));
+                Optional.of(stubSingleProrobotItem()));
 
     }
 
@@ -112,7 +112,7 @@ public class TestUtil {
                 OrderSource.WEB,
                 Location.TOKYO,
                 UUID.randomUUID().toString(),
-                Optional.of(stubSingleBaristaItem()),
-                Optional.of(stubSingleKitchenItem()));
+                Optional.of(stubSingleHomerobotItem()),
+                Optional.of(stubSingleProrobotItem()));
     }
 }

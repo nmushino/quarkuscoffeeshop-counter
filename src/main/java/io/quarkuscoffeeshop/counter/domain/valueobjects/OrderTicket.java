@@ -5,7 +5,7 @@ import io.quarkuscoffeeshop.counter.domain.Item;
 import java.time.Instant;
 
 /**
- * Java representation of the JSON sent and received from Barista and Kitchen
+ * Java representation of the JSON sent and received from Homerobot and Prorobot
  *
  */
 public class OrderTicket {

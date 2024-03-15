@@ -23,9 +23,9 @@ public class PlaceOrderCommand {
 
   private final String loyaltyMemberId;
 
-  private final List<CommandItem> baristaLineItems;
+  private final List<CommandItem> homerobotLineItems;
 
-  private final List<CommandItem> kitchenLineItems;
+  private final List<CommandItem> prorobotLineItems;
 
   private final Instant timestamp;
 
@@ -35,21 +35,21 @@ public class PlaceOrderCommand {
           @JsonProperty("orderSource") final OrderSource orderSource,
           @JsonProperty("location") final Location location,
           @JsonProperty("loyaltyMemberId") final String loyaltyMemberId,
-          @JsonProperty("baristaLineItems") Optional<List<CommandItem>> baristaLineItems,
-          @JsonProperty("kitchenLineItems") Optional<List<CommandItem>> kitchenLineItems) {
+          @JsonProperty("homerobotLineItems") Optional<List<CommandItem>> homerobotLineItems,
+          @JsonProperty("prorobotLineItems") Optional<List<CommandItem>> prorobotLineItems) {
     this.id = id;
     this.orderSource = orderSource;
     this.location = location;
     this.loyaltyMemberId = loyaltyMemberId;
-    if (baristaLineItems.isPresent()) {
-      this.baristaLineItems = baristaLineItems.get();
+    if (homerobotLineItems.isPresent()) {
+      this.homerobotLineItems = homerobotLineItems.get();
     }else{
-      this.baristaLineItems = null;
+      this.homerobotLineItems = null;
     }
-    if (kitchenLineItems.isPresent()) {
-      this.kitchenLineItems = kitchenLineItems.get();
+    if (prorobotLineItems.isPresent()) {
+      this.prorobotLineItems = prorobotLineItems.get();
     }else{
-      this.kitchenLineItems = null;
+      this.prorobotLineItems = null;
     }
     this.timestamp = Instant.now();
   }
@@ -61,8 +61,8 @@ public class PlaceOrderCommand {
             ", orderSource=" + orderSource +
             ", location=" + location +
             ", loyaltyMemberId='" + loyaltyMemberId + '\'' +
-            ", baristaLineItems=" + baristaLineItems +
-            ", kitchenLineItems=" + kitchenLineItems +
+            ", homerobotLineItems=" + homerobotLineItems +
+            ", prorobotLineItems=" + prorobotLineItems +
             ", timestamp=" + timestamp +
             '}';
   }
@@ -72,20 +72,20 @@ public class PlaceOrderCommand {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     PlaceOrderCommand that = (PlaceOrderCommand) o;
-    return Objects.equals(id, that.id) && orderSource == that.orderSource && location == that.location && Objects.equals(loyaltyMemberId, that.loyaltyMemberId) && Objects.equals(baristaLineItems, that.baristaLineItems) && Objects.equals(kitchenLineItems, that.kitchenLineItems) && Objects.equals(timestamp, that.timestamp);
+    return Objects.equals(id, that.id) && orderSource == that.orderSource && location == that.location && Objects.equals(loyaltyMemberId, that.loyaltyMemberId) && Objects.equals(homerobotLineItems, that.homerobotLineItems) && Objects.equals(prorobotLineItems, that.prorobotLineItems) && Objects.equals(timestamp, that.timestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, orderSource, location, loyaltyMemberId, baristaLineItems, kitchenLineItems, timestamp);
+    return Objects.hash(id, orderSource, location, loyaltyMemberId, homerobotLineItems, prorobotLineItems, timestamp);
   }
 
-  public Optional<List<CommandItem>> getBaristaLineItems() {
-    return Optional.ofNullable(baristaLineItems);
+  public Optional<List<CommandItem>> getHomerobotLineItems() {
+    return Optional.ofNullable(homerobotLineItems);
   }
 
-  public Optional<List<CommandItem>> getKitchenLineItems() {
-    return Optional.ofNullable(kitchenLineItems);
+  public Optional<List<CommandItem>> getProrobotLineItems() {
+    return Optional.ofNullable(prorobotLineItems);
   }
 
   public Optional<String> getLoyaltyMemberId() {

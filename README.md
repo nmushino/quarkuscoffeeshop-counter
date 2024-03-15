@@ -3,7 +3,7 @@ Please see the Github Pages Site for complete documentation: [quarkuscoffeeshop.
 
 # About 
 
-This repos contains the Quarkus Coffeeshop Counter Microservice.  The Counter microservice coordinates events in the system.  It receives orders from the Web microservice from a Kakfa topic, records the orders in a database, sends messages to the Barista and Kitchen microservices, listens for updates from the Barista and Kitchen microservices, and updates the Web microservice.
+This repos contains the Quarkus Coffeeshop Counter Microservice.  The Counter microservice coordinates events in the system.  It receives orders from the Web microservice from a Kakfa topic, records the orders in a database, sends messages to the Homerobot and Prorobot microservices, listens for updates from the Homerobot and Prorobot microservices, and updates the Web microservice.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.  If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
@@ -51,8 +51,8 @@ If you want to monitor the Kafka topics and have Kafka's command line tools inst
 ```shell script
 kafka-console-consumer --bootstrap-server localhost:9092 --topic orders --from-beginning
 kafka-console-consumer --bootstrap-server localhost:9092 --topic web-updates --from-beginning
-kafka-console-consumer --bootstrap-server localhost:9092 --topic barista-in --from-beginning
-kafka-console-consumer --bootstrap-server localhost:9092 --topic kitchen-in --from-beginning
+kafka-console-consumer --bootstrap-server localhost:9092 --topic homerobot-in --from-beginning
+kafka-console-consumer --bootstrap-server localhost:9092 --topic prorobot-in --from-beginning
 kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-up --from-beginning
 ```
 

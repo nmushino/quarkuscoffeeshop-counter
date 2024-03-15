@@ -14,8 +14,8 @@ public class OrderCreationTest {
         Order order = Order.fromPlaceOrderCommand(placeOrderCommand);
         assertNotNull(order);
         assertNotNull(order.getOrderId());
-        assertEquals(1, order.getBaristaLineItems().get().size());
-        assertFalse(order.getKitchenLineItems().isPresent());
+        assertEquals(1, order.getHomerobotLineItems().get().size());
+        assertFalse(order.getProrobotLineItems().isPresent());
     }
 
     @Test
@@ -25,18 +25,18 @@ public class OrderCreationTest {
         Order order = Order.fromPlaceOrderCommand(placeOrderCommand);
         assertNotNull(order);
         assertNotNull(order.getOrderId());
-        assertEquals(1, order.getKitchenLineItems().get().size());
-        assertFalse(order.getBaristaLineItems().isPresent());
+        assertEquals(1, order.getProrobotLineItems().get().size());
+        assertFalse(order.getHomerobotLineItems().isPresent());
     }
 
     @Test
-    public void testOrderCreationWithBeverageAndKitchenItems() {
+    public void testOrderCreationWithBeverageAndProrobotItems() {
 
         PlaceOrderCommand placeOrderCommand = TestUtil.stubPlaceOrderCommandBlackCoffeeAndCroissant();
         Order order = Order.fromPlaceOrderCommand(placeOrderCommand);
         assertNotNull(order);
         assertNotNull(order.getOrderId());
-        assertEquals(1, order.getBaristaLineItems().get().size());
-        assertEquals(1, order.getKitchenLineItems().get().size());
+        assertEquals(1, order.getHomerobotLineItems().get().size());
+        assertEquals(1, order.getProrobotLineItems().get().size());
     }
 }
