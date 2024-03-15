@@ -1,13 +1,13 @@
-package io.quarkuscoffeeshop.infrastructure;
+package io.quarkusrobotshop.infrastructure;
 
 import io.debezium.outbox.quarkus.ExportedEvent;
-import io.quarkuscoffeeshop.counter.domain.Order;
-import io.quarkuscoffeeshop.counter.domain.OrderRepository;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderEventResult;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderTicket;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderUpdate;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.TicketUp;
+import io.quarkusrobotshop.counter.domain.Order;
+import io.quarkusrobotshop.counter.domain.OrderRepository;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderEventResult;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderTicket;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderUpdate;
+import io.quarkusrobotshop.counter.domain.valueobjects.TicketUp;
 import org.eclipse.microprofile.context.ThreadContext;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;

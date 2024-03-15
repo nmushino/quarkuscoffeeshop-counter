@@ -1,8 +1,8 @@
-package io.quarkuscoffeeshop.counter.infrastructure.kafkaservice;
+package io.quarkusrobotshop.counter.infrastructure.kafkaservice;
 
 import io.quarkus.test.junit.QuarkusTestProfile;
-import io.quarkuscoffeeshop.counter.infrastructure.KafkaTestResource;
-import io.quarkuscoffeeshop.counter.infrastructure.OrderServiceMock;
+import io.quarkusrobotshop.counter.infrastructure.KafkaTestResource;
+import io.quarkusrobotshop.counter.infrastructure.OrderServiceMock;
 
 import java.util.Collections;
 import java.util.List;

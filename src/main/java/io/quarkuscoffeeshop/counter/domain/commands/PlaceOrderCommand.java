@@ -1,11 +1,11 @@
-package io.quarkuscoffeeshop.counter.domain.commands;
+package io.quarkusrobotshop.counter.domain.commands;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import io.quarkuscoffeeshop.counter.domain.LineItem;
-import io.quarkuscoffeeshop.counter.domain.Location;
-import io.quarkuscoffeeshop.counter.domain.OrderSource;
+import io.quarkusrobotshop.counter.domain.LineItem;
+import io.quarkusrobotshop.counter.domain.Location;
+import io.quarkusrobotshop.counter.domain.OrderSource;
 
 import java.time.Instant;
 import java.util.List;

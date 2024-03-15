@@ -1,7 +1,7 @@
-package io.quarkuscoffeeshop.counter.domain.commands;
+package io.quarkusrobotshop.counter.domain.commands;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import io.quarkuscoffeeshop.counter.domain.Item;
+import io.quarkusrobotshop.counter.domain.Item;
 
 import java.math.BigDecimal;
 import java.util.StringJoiner;

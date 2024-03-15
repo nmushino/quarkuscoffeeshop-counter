@@ -1,7 +1,7 @@
-package io.quarkuscoffeeshop.infrastructure;
+package io.quarkusrobotshop.infrastructure;
 
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
 
 /**
  * Custom Jackson deserializer for PlaceOrderCommands

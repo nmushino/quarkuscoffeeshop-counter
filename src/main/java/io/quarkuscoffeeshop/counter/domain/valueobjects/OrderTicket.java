@@ -1,6 +1,6 @@
-package io.quarkuscoffeeshop.counter.domain.valueobjects;
+package io.quarkusrobotshop.counter.domain.valueobjects;
 
-import io.quarkuscoffeeshop.counter.domain.Item;
+import io.quarkusrobotshop.counter.domain.Item;
 
 import java.time.Instant;
 

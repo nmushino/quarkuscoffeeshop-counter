@@ -1,6 +1,6 @@
-package io.quarkuscoffeeshop.counter.domain;
+package io.quarkusrobotshop.counter.domain;
 
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderEventResult;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderEventResult;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

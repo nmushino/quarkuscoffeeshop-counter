@@ -1,10 +1,10 @@
-package io.quarkuscoffeeshop.counter.domain;
+package io.quarkusrobotshop.counter.domain;
 
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
-import io.quarkuscoffeeshop.counter.domain.events.LoyaltyMemberPurchaseEvent;
-import io.quarkuscoffeeshop.counter.domain.events.OrderCreatedEvent;
-import io.quarkuscoffeeshop.counter.domain.events.OrderUpdatedEvent;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.*;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.events.LoyaltyMemberPurchaseEvent;
+import io.quarkusrobotshop.counter.domain.events.OrderCreatedEvent;
+import io.quarkusrobotshop.counter.domain.events.OrderUpdatedEvent;
+import io.quarkusrobotshop.counter.domain.valueobjects.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

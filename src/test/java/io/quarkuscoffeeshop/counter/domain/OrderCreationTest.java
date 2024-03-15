@@ -1,6 +1,6 @@
-package io.quarkuscoffeeshop.counter.domain;
+package io.quarkusrobotshop.counter.domain;
 
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

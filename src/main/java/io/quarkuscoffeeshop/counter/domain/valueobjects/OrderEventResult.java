@@ -1,7 +1,7 @@
-package io.quarkuscoffeeshop.counter.domain.valueobjects;
+package io.quarkusrobotshop.counter.domain.valueobjects;
 
 import io.debezium.outbox.quarkus.ExportedEvent;
-import io.quarkuscoffeeshop.counter.domain.Order;
+import io.quarkusrobotshop.counter.domain.Order;
 
 import java.util.ArrayList;
 import java.util.List;

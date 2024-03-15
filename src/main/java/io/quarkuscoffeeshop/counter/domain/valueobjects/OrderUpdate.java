@@ -1,7 +1,7 @@
-package io.quarkuscoffeeshop.counter.domain.valueobjects;
+package io.quarkusrobotshop.counter.domain.valueobjects;
 
-import io.quarkuscoffeeshop.counter.domain.Item;
-import io.quarkuscoffeeshop.counter.domain.OrderStatus;
+import io.quarkusrobotshop.counter.domain.Item;
+import io.quarkusrobotshop.counter.domain.OrderStatus;
 
 import java.util.Optional;
 import java.util.StringJoiner;

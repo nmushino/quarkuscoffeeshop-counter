@@ -1,4 +1,4 @@
-package io.quarkuscoffeeshop.testing;
+package io.quarkusrobotshop.testing;
 
 import io.quarkus.test.junit.QuarkusTest;
 

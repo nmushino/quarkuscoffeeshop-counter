@@ -1,4 +1,4 @@
-package io.quarkuscoffeeshop.counter.domain;
+package io.quarkusrobotshop.counter.domain;
 
 import io.quarkus.test.Mock;
 import org.slf4j.Logger;

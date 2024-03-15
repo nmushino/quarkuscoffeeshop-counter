@@ -1,10 +1,10 @@
-package io.quarkuscoffeeshop.counter.infrastructure;
+package io.quarkusrobotshop.counter.infrastructure;
 
 import io.quarkus.test.Mock;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderTicket;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.TicketUp;
-import io.quarkuscoffeeshop.infrastructure.OrderService;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderTicket;
+import io.quarkusrobotshop.counter.domain.valueobjects.TicketUp;
+import io.quarkusrobotshop.infrastructure.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

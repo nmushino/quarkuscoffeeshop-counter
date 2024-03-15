@@ -1,4 +1,4 @@
-package io.quarkuscoffeeshop.counter.infrastructure;
+package io.quarkusrobotshop.counter.infrastructure;
 
 import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
 import io.smallrye.reactive.messaging.connectors.InMemoryConnector;

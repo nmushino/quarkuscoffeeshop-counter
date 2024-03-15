@@ -1,4 +1,4 @@
-package io.quarkuscoffeeshop.counter.domain;
+package io.quarkusrobotshop.counter.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 

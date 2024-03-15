@@ -1,12 +1,12 @@
-package io.quarkuscoffeeshop.counter.domain;
+package io.quarkusrobotshop.counter.domain;
 
 import io.debezium.outbox.quarkus.ExportedEvent;
-import io.quarkuscoffeeshop.counter.domain.commands.CommandItem;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
-import io.quarkuscoffeeshop.counter.domain.events.OrderCreatedEvent;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderEventResult;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.OrderTicket;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.TicketUp;
+import io.quarkusrobotshop.counter.domain.commands.CommandItem;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.events.OrderCreatedEvent;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderEventResult;
+import io.quarkusrobotshop.counter.domain.valueobjects.OrderTicket;
+import io.quarkusrobotshop.counter.domain.valueobjects.TicketUp;
 
 import java.math.BigDecimal;
 import java.time.Instant;

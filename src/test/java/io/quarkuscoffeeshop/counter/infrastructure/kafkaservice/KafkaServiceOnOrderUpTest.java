@@ -1,14 +1,14 @@
-package io.quarkuscoffeeshop.counter.infrastructure.kafkaservice;
+package io.quarkusrobotshop.counter.infrastructure.kafkaservice;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.QuarkusTestProfile;
 import io.quarkus.test.junit.TestProfile;
 import io.quarkus.test.junit.mockito.InjectSpy;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.TicketUp;
-import io.quarkuscoffeeshop.counter.infrastructure.OrderServiceMock;
-import io.quarkuscoffeeshop.infrastructure.OrderService;
-import io.quarkuscoffeeshop.counter.domain.TestUtil;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.valueobjects.TicketUp;
+import io.quarkusrobotshop.counter.infrastructure.OrderServiceMock;
+import io.quarkusrobotshop.infrastructure.OrderService;
+import io.quarkusrobotshop.counter.domain.TestUtil;
 import io.smallrye.reactive.messaging.connectors.InMemoryConnector;
 import io.smallrye.reactive.messaging.connectors.InMemorySource;
 import org.eclipse.microprofile.config.inject.ConfigProperty;

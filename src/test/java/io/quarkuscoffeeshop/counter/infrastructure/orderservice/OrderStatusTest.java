@@ -1,12 +1,12 @@
-package io.quarkuscoffeeshop.counter.infrastructure.orderservice;
+package io.quarkusrobotshop.counter.infrastructure.orderservice;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.TestProfile;
-import io.quarkuscoffeeshop.counter.domain.*;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
-import io.quarkuscoffeeshop.counter.domain.valueobjects.TicketUp;
-import io.quarkuscoffeeshop.infrastructure.OrderService;
-import io.quarkuscoffeeshop.counter.domain.TestUtil;
+import io.quarkusrobotshop.counter.domain.*;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.valueobjects.TicketUp;
+import io.quarkusrobotshop.infrastructure.OrderService;
+import io.quarkusrobotshop.counter.domain.TestUtil;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;

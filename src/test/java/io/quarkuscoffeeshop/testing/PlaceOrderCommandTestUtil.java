@@ -1,11 +1,11 @@
-package io.quarkuscoffeeshop.testing;
+package io.quarkusrobotshop.testing;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.quarkuscoffeeshop.counter.domain.Item;
-import io.quarkuscoffeeshop.counter.domain.Location;
-import io.quarkuscoffeeshop.counter.domain.OrderSource;
-import io.quarkuscoffeeshop.counter.domain.commands.CommandItem;
-import io.quarkuscoffeeshop.counter.domain.commands.PlaceOrderCommand;
+import io.quarkusrobotshop.counter.domain.Item;
+import io.quarkusrobotshop.counter.domain.Location;
+import io.quarkusrobotshop.counter.domain.OrderSource;
+import io.quarkusrobotshop.counter.domain.commands.CommandItem;
+import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
 
 import java.math.BigDecimal;
 import java.time.Instant;
