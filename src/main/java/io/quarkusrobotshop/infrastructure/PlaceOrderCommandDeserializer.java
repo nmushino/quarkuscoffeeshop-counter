@@ -1,3 +1,4 @@
+
 package io.quarkusrobotshop.infrastructure;
 
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;

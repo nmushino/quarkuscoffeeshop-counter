@@ -1,6 +1,14 @@
 package io.quarkusrobotshop.counter.domain;
 
 import io.debezium.outbox.quarkus.ExportedEvent;
+import io.quarkusrobotshop.counter.domain.Item;
+import io.quarkusrobotshop.counter.domain.LineItem;
+import io.quarkusrobotshop.counter.domain.LineItemStatus;
+import io.quarkusrobotshop.counter.domain.Location;
+import io.quarkusrobotshop.counter.domain.Order;
+import io.quarkusrobotshop.counter.domain.OrderRecord;
+import io.quarkusrobotshop.counter.domain.OrderSource;
+import io.quarkusrobotshop.counter.domain.OrderStatus;
 import io.quarkusrobotshop.counter.domain.commands.CommandItem;
 import io.quarkusrobotshop.counter.domain.commands.PlaceOrderCommand;
 import io.quarkusrobotshop.counter.domain.events.OrderCreatedEvent;

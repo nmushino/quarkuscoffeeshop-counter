@@ -1,5 +1,6 @@
 package io.quarkusrobotshop.counter.domain;
 
+import io.quarkusrobotshop.counter.domain.Order;
 import io.quarkusrobotshop.counter.domain.valueobjects.OrderEventResult;
 import org.junit.jupiter.api.Test;
 

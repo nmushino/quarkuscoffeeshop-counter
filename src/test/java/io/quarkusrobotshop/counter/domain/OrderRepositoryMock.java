@@ -1,6 +1,9 @@
 package io.quarkusrobotshop.counter.domain;
 
 import io.quarkus.test.Mock;
+import io.quarkusrobotshop.counter.domain.OrderRecord;
+import io.quarkusrobotshop.counter.domain.OrderRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

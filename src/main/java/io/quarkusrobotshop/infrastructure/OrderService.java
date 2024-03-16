@@ -1,3 +1,8 @@
+
+
+
+
+
 package io.quarkusrobotshop.infrastructure;
 
 import io.debezium.outbox.quarkus.ExportedEvent;
