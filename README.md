@@ -3,7 +3,7 @@ Please see the Github Pages Site for complete documentation: [quarkusrobotshop.g
 
 # About 
 
-This repos contains the Quarkus Coffeeshop Counter Microservice.  The Counter microservice coordinates events in the system.  It receives orders from the Web microservice from a Kakfa topic, records the orders in a database, sends messages to the Homerobot and Prorobot microservices, listens for updates from the Homerobot and Prorobot microservices, and updates the Web microservice.
+This repos contains the Quarkus robotshop Counter Microservice.  The Counter microservice coordinates events in the system.  It receives orders from the Web microservice from a Kakfa topic, records the orders in a database, sends messages to the Homerobot and Prorobot microservices, listens for updates from the Homerobot and Prorobot microservices, and updates the Web microservice.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.  If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 

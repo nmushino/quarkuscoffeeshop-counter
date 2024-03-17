@@ -33,7 +33,7 @@ public class OrderCreationTest {
     @Test
     public void testOrderCreationWithBeverageAndProrobotItems() {
 
-        PlaceOrderCommand placeOrderCommand = TestUtil.stubPlaceOrderCommandBlackCoffeeAndCroissant();
+        PlaceOrderCommand placeOrderCommand = TestUtil.stubPlaceOrderCommandBlackrobotAndCroissant();
         Order order = Order.fromPlaceOrderCommand(placeOrderCommand);
         assertNotNull(order);
         assertNotNull(order.getOrderId());

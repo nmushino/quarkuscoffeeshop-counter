@@ -35,7 +35,7 @@ public class OrderEventResultCreationTest {
     @Test
     public void testOrderCreationWithBeverageAndProrobotItems() {
 
-        PlaceOrderCommand placeOrderCommand = TestUtil.stubPlaceOrderCommandBlackCoffeeAndCroissant();
+        PlaceOrderCommand placeOrderCommand = TestUtil.stubPlaceOrderCommandBlackrobotAndCroissant();
         OrderEventResult orderEventResult = Order.createFromCommand(placeOrderCommand);
         assertNotNull(orderEventResult.getOrder());
         assertNotNull(orderEventResult.getOrder().getOrderId());

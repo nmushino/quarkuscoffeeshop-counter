@@ -113,7 +113,7 @@ public class TestUtil {
 
     }
 
-    public static PlaceOrderCommand stubPlaceOrderCommandBlackCoffeeAndCroissant() {
+    public static PlaceOrderCommand stubPlaceOrderCommandBlackrobotAndCroissant() {
 
         return new PlaceOrderCommand(
                 UUID.randomUUID().toString(),

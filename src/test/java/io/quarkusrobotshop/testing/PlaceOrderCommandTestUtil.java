@@ -53,7 +53,7 @@ public class PlaceOrderCommandTestUtil {
         this.id = id;
     }
 
-    public PlaceOrderCommandTestUtil withBlackCoffee() {
+    public PlaceOrderCommandTestUtil withBlackrobot() {
         if (this.homerobotLineItems == null) {
             this.homerobotLineItems = new ArrayList<>();
         }
@@ -61,7 +61,7 @@ public class PlaceOrderCommandTestUtil {
         return this;
     }
 
-    public void withBlackCoffeeFor(final String name) {
+    public void withBlackrobotFor(final String name) {
         this.homerobotLineItems.add(new CommandItem(Item.CP0FB2_BLACK, name, BigDecimal.valueOf(3.50)));
     }
 
