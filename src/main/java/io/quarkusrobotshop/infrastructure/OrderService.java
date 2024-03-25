@@ -1,8 +1,3 @@
-
-
-
-
-
 package io.quarkusrobotshop.infrastructure;
 
 import io.debezium.outbox.quarkus.ExportedEvent;
@@ -38,10 +33,10 @@ public class OrderService {
     @Inject
     Event<ExportedEvent<?, ?>> event;
 
-    @Channel("homerobot")
+    @Channel("homerobot-in")
     Emitter<OrderTicket> homerobotEmitter;
 
-    @Channel("prorobot")
+    @Channel("prorobot-in")
     Emitter<OrderTicket> prorobotEmitter;
 
     @Channel("web-updates")
@@ -64,6 +59,13 @@ public class OrderService {
 
         if (orderEventResult.getHomerobotTickets().isPresent()) {
             orderEventResult.getHomerobotTickets().get().forEach(homerobotTicket -> {
+
+                //Wait
+                try {
+                    Thread.sleep(3500);
+                }
+                catch (InterruptedException e) {}
+
                 logger.debug("Sending Ticket to Homerobot Service: {}", homerobotTicket);
                 homerobotEmitter.send(homerobotTicket);
             });
@@ -71,11 +73,20 @@ public class OrderService {
 
         if (orderEventResult.getProrobotTickets().isPresent()) {
             orderEventResult.getProrobotTickets().get().forEach(prorobotTicket -> {
+
+                //Wait
+                try {
+                    Thread.sleep(3500);
+                }
+                catch (InterruptedException e) {}
+                
+                logger.debug("Sending Ticket to Prorobot Service: {}", prorobotTicket);
                 prorobotEmitter.send(prorobotTicket);
             });
         }
 
         orderEventResult.getOrderUpdates().forEach(orderUpdate -> {
+            System.out.println("AAAAAAAAAAAAAAACCCCCCCC");
             orderUpdateEmitter.send(orderUpdate);
         });
 

@@ -57,12 +57,12 @@ public class PlaceOrderCommandTestUtil {
         if (this.homerobotLineItems == null) {
             this.homerobotLineItems = new ArrayList<>();
         }
-        this.homerobotLineItems.add(new CommandItem(Item.CP0FB2_BLACK, "Jerry", BigDecimal.valueOf(3.50)));
+        this.homerobotLineItems.add(new CommandItem(Item.CP0FB2_BLACK, "Jerry", BigDecimal.valueOf(150000)));
         return this;
     }
 
     public void withBlackrobotFor(final String name) {
-        this.homerobotLineItems.add(new CommandItem(Item.CP0FB2_BLACK, name, BigDecimal.valueOf(3.50)));
+        this.homerobotLineItems.add(new CommandItem(Item.CP0FB2_BLACK, name, BigDecimal.valueOf(150000)));
     }
 
     public PlaceOrderCommand build() {
